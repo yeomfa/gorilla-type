@@ -1,0 +1,156 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
+
+/* Root */
+:root {
+  --primaryColor: #2979ff;
+  --secondaryColor: #777;
+  --backgrounColor: #2c2c2c;
+}
+
+/* All */
+*{
+  padding: 0;
+  margin: 0;
+  font-family: Poppins;
+}
+
+/* Body */
+body {
+  background-color: var(--backgrounColor);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Title */
+h1 {
+  margin: 50px 0 20px 0;
+  color:  var(--primaryColor);
+}
+
+/* Area type */
+.display {
+  height: 50vh;
+  width: 80%;
+  max-width: 900px;
+  color: #fff;
+  padding: 10px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.to-write {
+  color: var(--secondaryColor);
+  text-align: left;
+  overflow: hidden;
+}
+
+.quote {
+  color: var(--secondaryColor);
+  text-align: left;
+}
+
+.author {
+  margin-top: 10px;
+  color: var(--primaryColor);
+  font-size: 15px;
+  text-align: left;
+  width: 100%;
+}
+
+.true {
+  color: #fff;
+}
+
+.false {
+  color: #fc0839;
+  animation: false .2s;
+  text-decoration: underline;
+}
+
+@keyframes false {
+  0% { 
+    font-size: 25px;
+  }
+  100% {
+    font-size: 20px;
+  }
+}
+
+.letter {
+  position: relative;
+}
+
+.cursor {
+  color: var(--primaryColor);
+  position: absolute;
+  animation: cursor 1s infinite;
+  top: -7px;
+  left: -3px;
+  font-size: 25px;
+}
+
+@keyframes cursor {
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Buttons */
+.btns {
+  margin-top: 20px;
+  width: 40%;
+  max-width: 15em;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.btns button {
+  width: 45%;
+  height: 50px;
+  border-radius: 5px;
+  font-size: 17px;
+  cursor: pointer;
+  border: none;
+  font-weight: 500;
+}
+
+.start {
+  background-color: var(--primaryColor); 
+  color: #fff;
+}
+
+.start:hover {
+  outline: 3px solid #fff;
+}
+
+.reset {
+  color: var(--primaryColor);
+  background-color: #fff;
+}
+
+.reset:hover {
+  outline: 3px solid var(--primaryColor);
+}
+
+.settings {
+  color: var(--primaryColor);
+  background-color: #fff;
+}
+
+.keymap {
+  font-size: 10px;
+}
+
+/* Hidden */
+.hidden {
+  display: none;
+}
