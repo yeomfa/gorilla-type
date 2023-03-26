@@ -29,7 +29,7 @@ h1 {
   color:  var(--primaryColor);
 }
 
-/* Area type */
+/* Writing */
 .display {
   height: 50vh;
   width: 80%;
@@ -43,7 +43,7 @@ h1 {
   justify-content: center;
 }
 
-.to-write {
+.container-to-write {
   color: var(--secondaryColor);
   text-align: left;
   overflow: hidden;
@@ -103,6 +103,73 @@ h1 {
   }
 }
 
+/* Settings */
+.container-settings {
+  height: 100%;
+  width: 50%;
+  max-width: 300px;
+}
+
+.option {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.language {
+  cursor: pointer;
+  background: none;
+  border: none;
+  border: 2px solid white;
+  border-radius: 7px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--primaryColor);
+  padding: 2px 0 0 5px;
+}
+
+.color {
+  -moz-appearance: none;
+  appearance: none;
+  width: 45px;
+  height: 30px;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 7px;
+  cursor: pointer;
+  display: flex;;
+}
+
+.color::-webkit-color-swatch {
+  border-radius: 3px;
+  border: none;
+}
+
+.color::-moz-color-swatch {
+  border-radius: 3px;
+  border: none;
+}
+
+.toggle {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 3px;
+  align-items: center;
+  border-radius: 50px;
+  height: 20px;
+  width: 35px;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.circle {
+  height: 15px;
+  width: 15px;
+  border-radius: 50px;
+  background-color: var(--secondaryColor);
+}
+
 /* Buttons */
 .btns {
   margin-top: 20px;
@@ -123,27 +190,22 @@ h1 {
   font-weight: 500;
 }
 
-.start {
+.primary {
   background-color: var(--primaryColor); 
   color: #fff;
 }
 
-.start:hover {
+.primary:hover {
   outline: 3px solid #fff;
 }
 
-.reset {
+.secondary {
   color: var(--primaryColor);
   background-color: #fff;
 }
 
-.reset:hover {
+.secondary:hover {
   outline: 3px solid var(--primaryColor);
-}
-
-.settings {
-  color: var(--primaryColor);
-  background-color: #fff;
 }
 
 .keymap {

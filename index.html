@@ -8,33 +8,54 @@
   </head>
   <body>
     <h1>GorillaType 🦍</h1>
-    <!-- Typing -->
+    <!-- Display -->
     <div class="display">
-      <div class="to-write">
+      <!-- Typing -->
+      <div class="container-to-write">
         <p class="quote">A good day to learn...(Ctrl + Enter)</p>
-        <p class="author"></p>
+        <p class="author hidden"></p>
       </div>
-      <div class="results"></div>
+      <!-- Resusts -->
+      <div class="container-results"></div>
+      <!-- Settings -->
+      <div class="container-settings hidden">
+        <h4 class="txt-title-settings">Settings:</h4>
+        <div class="option">
+          <p class="txt-color">Color</p>
+          <input type="color" class="color" name="color" value="#2979ff">
+        </div>
+        <div class="option">
+          <p class="txt-language">Language</p>
+          <select name="language" class="language">
+            <option class="txt-opt-english" value="english" selected>English </option>
+            <option class="txt-opt-spanish" value="spanish">Spanish</option>
+          </select>
+        </div>
+        <div class="option">
+          <p class="txt-keyboard">Keyboard</p>
+          <div class="toggle keyboard">
+            <div class="circle"></div>            
+          </div>
+        </div>
+      </div>
     </div>
     <!-- Buttons -->
     <div class="btns">
-      <button type="button" class="settings">
-        <div>
-          <p>Settings</p>
-          <p class="keymap">(Ctrl + S)</p>
-        </div>
+      <button type="button" class="home secondary">
+        <p class="txt-home">Home</p>
+        <p class="keymap">(Ctrl + H)</p>
       </button>
-      <button type="button" class="reset hidden">
-        <div>
-          <p>Reset</p>
-          <p class="keymap">(Tab & Enter)</p>
-        </div>
+      <button type="button" class="settings secondary">
+        <p class="txt-settings">Settings</p>
+        <p class="keymap">(Ctrl + S)</p>
       </button>
-        <button type="button" class="start">
-        <div>
-          <p>Start</p>
-          <p class="keymap">(Ctrl + Enter)</p>
-        </div>
+      <button type="button" class="reset primary hidden">
+        <p class="txt-reset">Reset</p>
+        <p class="keymap">(Tab & Enter)</p>
+      </button>
+      <button type="button" class="start primary">
+        <p class="txt-start">Start</p>
+        <p class="keymap">(Ctrl + Enter)</p>
       </button>
     </div>
   <script src="./assets/js/main.js"></script>
