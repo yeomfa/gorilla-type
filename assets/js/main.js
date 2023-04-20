@@ -14,6 +14,7 @@ const btnStart = document.querySelector('.start');
 const btnSettings = document.querySelector('.settings');
 const btnReset = document.querySelector('.reset');
 const btnHome = document.querySelector('.home');
+const btnResetSettings = document.querySelector('.reset-settings');
 
 // Txt
 const txtSettings = document.querySelector('.txt-settings');
@@ -30,6 +31,7 @@ const txtOptSpanish = document.querySelector('.txt-opt-spanish');
 
 // Inputs DOM
 const languageOption = document.querySelector('.language');
+const colorOption = document.querySelector('.color');
 
 // Variables
 const excludes = ['CapsLock', 'Enter', 'Tab', 'Escape', 'Control', 'Meta', 'Shift'];
@@ -37,7 +39,14 @@ let isStart = false;
 let isAccentMark = false;
 let letters = [];
 let typed = [];
-let language = 'english';
+
+const defaultSettings = {
+  language: 'english',
+  color: '#2979ff',
+}
+const customSettings = JSON.parse(localStorage.getItem('settings'));
+let language = customSettings?.language || defaultSettings.language;
+let color = customSettings?.color || defaultSettings.color;
 
 const languages = {
   english: {
@@ -86,24 +95,39 @@ const tildedVowels = [
 
 // Functions
 
+// Save settings
+const saveSettings = () => {
+  localStorage.setItem('settings', JSON.stringify({language, color}));
+};
+
 // Language
-const loadLanguage = (language) => {
-  txtSettings.textContent = languages[language].settings;
-  txtStart.textContent = languages[language].start;
-  txtReset.textContent = languages[language].reset;
-  txtHome.textContent = languages[language].home;
-  txtTitleSettings.textContent = languages[language].settings;
-  txtColor.textContent = languages[language].color;
-  txtLanguage.textContent = languages[language].language;
-  txtKeyboard.textContent = languages[language].keyboard;
-  txtOptEnglish.textContent = languages[language].english;
-  txtOptSpanish.textContent = languages[language].spanish;
-  quoteEl.textContent = languages[language].initial;
+const loadLanguage = languageSel => {
+  const language = languages[languageSel];
+  txtSettings.textContent = language.settings;
+  txtStart.textContent = language.start;
+  txtReset.textContent = language.reset;
+  txtHome.textContent = language.home;
+  txtTitleSettings.textContent = language.settings;
+  txtColor.textContent = language.color;
+  txtLanguage.textContent = language.language;
+  txtKeyboard.textContent = language.keyboard;
+  txtOptEnglish.textContent = language.english;
+  txtOptSpanish.textContent = language.spanish;
+  quoteEl.textContent = language.initial;
+}
+
+// Color
+const loadColor = color => {
+  document.documentElement.style.setProperty('--primaryColor', color);
+  colorOption.value = color;
 }
 
 // Init
 const init = function() {
+  // Load options
   loadLanguage(language);
+  loadColor(color);
+
   // DOM
   toWrite.classList.remove('hidden');
   settings.classList.add('hidden');
@@ -260,4 +284,21 @@ document.addEventListener('keydown', (e) => {
 languageOption.addEventListener('click', () => {
   language = languageOption.value;
   loadLanguage(language);
+  saveSettings();
+});
+
+// Color option
+colorOption.addEventListener('input', () => {
+  color = colorOption.value;
+  loadColor(color);
+  saveSettings();
+});
+
+// Reset config to default
+btnResetSettings.addEventListener('click', () => {
+  language = defaultSettings.language;
+  color = defaultSettings.color;
+  loadColor(color);
+  loadLanguage(language);
+  saveSettings();
 });

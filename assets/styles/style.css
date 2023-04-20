@@ -170,6 +170,17 @@ h1 {
   background-color: var(--secondaryColor);
 }
 
+.reset-settings {
+  font-weight: 400;
+  cursor: pointer;
+  color: var(--primaryColor);
+  border-bottom: 1px solid white;
+}
+
+.reset-settings:active {
+  font-weight: 500;
+}
+
 /* Buttons */
 .btns {
   margin-top: 20px;
